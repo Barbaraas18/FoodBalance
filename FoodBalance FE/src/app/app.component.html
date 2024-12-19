@@ -1,0 +1,41 @@
+<div class="background"></div>
+<div *ngIf="!isAuthenticated">
+  <!-- Header per utenti non autenticati -->
+  <header>
+    <div class="header-left">
+      <img src="solologo.png" alt="logo" class="logo">
+      <img src="soloscrittawhite.png" alt="logo" class="scritta">
+    </div>
+    <mat-tab-group class="menu_scelta">
+      <mat-tab label="Menù Principale" routerLink="/"></mat-tab>
+    </mat-tab-group>
+    <button mat-icon-button class="icon_botton" [matMenuTriggerFor]="fileMenu"><mat-icon>account_circle</mat-icon></button>
+      <mat-menu #fileMenu="matMenu">
+        <button mat-menu-item (click)="openLoginDialog()">Login</button>
+        <button mat-menu-item (click)="openRegistrazioneDialog()">Registati</button>
+      </mat-menu>
+  </header>
+  <router-outlet></router-outlet>
+</div>
+
+<div *ngIf="isAuthenticated">
+  <!-- Header per utenti autenticati -->
+  <header>
+    <div class="header-left">
+      <img src="solologo.png" alt="logo" class="logo">
+      <img src="soloscrittawhite.png" alt="logo" class="scritta">
+    </div>
+
+    <mat-tab-group class="menu_scelta" (selectedTabChange)="onTabChange($event)">
+      <mat-tab label="Area Personale"></mat-tab>
+      <mat-tab label="I tuoi pasti"></mat-tab>
+      <mat-tab label="Riepilogo"></mat-tab>
+    </mat-tab-group>
+    
+    
+    <button mat-icon-button class="icon_botton" (click)="logout()">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </header>
+  <router-outlet></router-outlet>
+</div>

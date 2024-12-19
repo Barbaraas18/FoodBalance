@@ -1,0 +1,169 @@
+.background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/sfondo.jpeg"); /* Sostituisci con il percorso della tua immagine */
+    background-size: cover; /* Adatta l'immagine allo schermo */
+    background-position: center; /* Centra l'immagine */
+    background-repeat: no-repeat; /* Evita la ripetizione */
+    opacity: 0.1; /* Imposta l'opacità dello sfondo */
+    z-index: -1; /* Posiziona lo sfondo dietro il contenuto */
+}
+
+
+span{
+    font-family: "Playwrite GB S", serif;
+    font-weight: bold;
+    color: #168801f5;
+}
+
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+
+
+
+.testo{
+    font-family: "Crimson Text", serif;
+    text-align: center;
+    font-size: 31px;
+
+}
+
+
+.scritta{
+    width: 30%;
+}
+
+button.tasto
+{
+    width:150px;
+    background-color: #168801f5;
+    color: #fff;
+    margin:5px;
+    display:flex;
+    margin-right: auto;
+    margin-left: auto;
+    pointer-events: auto; /* Assicurati che il pulsante sia cliccabile */
+
+}
+
+button.tasto:hover{
+    background-color: #127102f5;
+}
+
+
+
+
+
+
+.descrizione .testo {
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+
+.descrizione .testo a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.descrizione .testo a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+.container{
+    display: flex;
+    flex-direction: row; /* Mantiene le sezioni in colonna */
+
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra orizzontalmente */
+
+    background: rgba(255, 255, 255, 0.838);
+    border-radius: 15px;
+
+    margin-top: 95px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.descrizione{
+    position: center;
+    z-index: 2;
+    width: 70%;
+    align-content: center;
+    padding: 3rem;
+    
+    text-align: center;
+    color: #333;
+    
+}
+
+.cards h3{
+    font-family: "Crimson Text", serif;
+    font-size: 2rem;
+    color: black;
+}
+
+.cards {
+        display: flex;
+        justify-content:center;
+        gap: 1.5rem;
+        z-index: 2;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+        padding: 3rem;
+    }
+
+.card {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        max-width: 225px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+}
+
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.card h3 {
+    font-family: "Crimson Text", serif;
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 0;/* Margine superiore e inferiore ridotto */
+    color: #168801f5;
+}
+
+.card p {
+    margin: 0 5px;
+    padding-bottom: 10px; /* Rimuove qualsiasi margine superiore */
+    font-family: "Crimson Text", serif;
+    color: #555;
+    font-size: 18px;
+}
+
+

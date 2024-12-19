@@ -1,0 +1,12 @@
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>Ciao, {{utente?.username}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+      <div class="icona"><mat-icon>account_circle</mat-icon></div>
+    <div class="testo">
+      <p>Per i dati inseriti, la tua condizione fisica è <b>{{utente?.categoria_peso}}</b>, perciò le calorie da assumere giornalmente sono: <b>{{utente?.calorie}} Kcal</b>.<br><br> <b>Componi il tuo pasto</b> per tenere traccia delle calorie assunte e raggiungere la condizione ottimale!
+    </p></div>
+  </mat-card-content>
+</mat-card>

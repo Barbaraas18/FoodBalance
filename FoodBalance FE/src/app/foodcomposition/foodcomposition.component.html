@@ -1,0 +1,69 @@
+
+<div class="FoodCompositionContainer">
+    <h1>I tuoi pasti</h1>
+    <div class="aggiungiAlimento">
+        <input type="text"
+        [disabled]="isDisabled"
+        id="inputFoodPicker"
+        placeholder="Aggiungi alimento"
+        matInput
+        (input)="CercaAlimento($event)"
+        [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" id="autoComplete">
+        @for (option of ListaNomiCibi; track option) {
+          <mat-option [value]="option" >{{option}}</mat-option>
+          
+        }
+        
+        </mat-autocomplete>
+
+
+
+        <input   type="number" id="inputWeights" min="0" [disabled]="isDisabled" placeholder="Quantità in grammi " ><!--  (input)="CercaAlimento($event)"-->
+        <button mat-raised-button class="verde" id="addAlimento" [disabled]="isDisabled" (click)="SalvaAlimento()">Aggiungi</button>
+        
+    </div>
+    
+    <div>
+        <div class="contenitoreFiltro"><div class="testoFiltro">Visualizza i pasti passati:</div><mat-form-field class="data" appearance="outline">
+            <input placeholder="Scegli una data" class="filtro" matInput [matDatepickerFilter]="myFilter"  [matDatepicker]="picker" (dateChange)="recuperaPastiGiorniPassati()">
+            <mat-datepicker-toggle class="icona" matIconSuffix [for]="picker" ></mat-datepicker-toggle>
+            <mat-datepicker #picker ></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="contenitoreTabella">
+        <table #mytable class="FoodTable" id="mytab" > 
+            <thead id="TableHeader">
+                <tr>
+                    <th>Alimento</th>
+                    <th>Calorie</th>
+                    <th>Proteine</th>
+                    <th>Grassi</th>
+                    <th>Carboidrati</th>
+                    <th>Quantità (gr)</th>
+                    <th>Azioni </th>
+                </tr>
+            </thead>
+            <tbody>
+                    <!-- ng if , ng for  -->
+                <tr *ngFor="let item of listaAlimenti ; let i = index ">
+                    <td>{{item.nome}}</td>
+                    <td>{{item.calorie}}</td>
+                    <td>{{item.proteine}}</td>
+                    <td>{{item.grassi}}</td>
+                    <td>{{item.carboidrati}}</td>
+                    <td>{{item.quantita}}</td>
+                    <!-- <td><button (click)="CancellaRiga(i)">X</button></td> -->
+                    <button mat-fab (click)="CancellaRiga(i)" [disabled]="isDisabled" id="DeleteButton">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </tr>    
+            </tbody>
+        </table>
+        </div>
+    </div>
+    <button class="verde" mat-raised-button [disabled]="isDisabled" (click)="SalvaDati()">Salva</button>
+    
+</div>
+
+

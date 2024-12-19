@@ -1,0 +1,34 @@
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+      <mat-card-title>Modifica nome utente e password</mat-card-title>
+  </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="formDatiAccount">
+    <div class="primaSezione">
+  <mat-form-field appearance="outline" class="email">
+      <mat-label>Email</mat-label>
+      <input matInput type="text" formControlName="email" readonly >
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="username">
+      <mat-label>Nome Utente</mat-label>
+      <input matInput type="text" formControlName="username">
+  </mat-form-field></div>
+  <div class="secondaSezione">
+      <mat-form-field appearance="outline" class="old_password_utente">
+          <mat-label>Vecchia Password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="old_password_utente">
+          <button class="password_button" matSuffix mat-icon-button (click)="hide = !hide">
+            <mat-icon class="password_icon">{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="password_utente">
+          <mat-label>Nuova Password</mat-label>
+          <input matInput [type]="hide2 ? 'password' : 'text'" formControlName="password_utente">
+          <button class="password_button" matSuffix mat-icon-button (click)="hide2 = !hide2">
+            <mat-icon class="password_icon">{{ hide2 ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+        </mat-form-field><button [disabled]="formDatiAccount.pristine||!formDatiAccount.valid" class="tasto" mat-raised-button (click)="Onclick()">Aggiorna</button>
+  </div><div class="warning">{{warning}}</div>
+</form></mat-card-content>
+</mat-card>

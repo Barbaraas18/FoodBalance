@@ -1,0 +1,21 @@
+<div class="contenitore">
+    <div class="grafico"><ng-template *ngIf="grafico; then graficoCalorie else graficoMacronutrienti"></ng-template></div>
+    <div class="testo">
+        <h1><ng-template *ngIf="grafico; then titoloGraficoCalorie else titoloGraficoMacronutrienti"></ng-template></h1>
+        <div class="descrizione"><ng-template *ngIf="grafico; then descrizioneGraficoCalorie else descrizioneGraficoMacronutrienti"></ng-template></div>
+    <div class="pulsanti"><button mat-button [disabled]="grafico" (click)="funzioneToggle()"> Grafico delle calorie</button>
+        <button mat-button [disabled]="!grafico"  (click)="funzioneToggle()" >Grafico dei macronutrienti</button></div>
+        <div class="warning">{{warning}}</div>
+</div>
+</div>
+
+
+
+<ng-template #graficoCalorie><app-grafico-calorie  [giornoCalorie]="giornoCalorie" [calorie_da_assumere]="calorie_da_assumere"></app-grafico-calorie></ng-template>
+<ng-template #graficoMacronutrienti><app-grafico-macronutrienti #graficoMacronutrienti [giornoMacronutrienti]="giornoMacronutrienti" [calorie_da_assumere]="calorie_da_assumere"></app-grafico-macronutrienti></ng-template>
+
+<ng-template #titoloGraficoCalorie>Grafico sull'andamento Calorico</ng-template>
+<ng-template #titoloGraficoMacronutrienti>Grafico sulla quantità di macronutrienti assunti</ng-template>
+
+<ng-template #descrizioneGraficoCalorie>Il Grafico di fianco mostra il numero di calorie assunte giornalmente negli ultimi 30 giorni. In nero si denota il quantitativo consigliato di calorie da assumere giornalmente, in rosso viene evidenziata la media delle calorie assunte negli ultimi 30 giorni. </ng-template>
+<ng-template #descrizioneGraficoMacronutrienti>Il Grafico di fianco mostra le calorie assunte giornalmente in funzione di ciascun macronutriente che compone il pasto (carboidrati, grassi e proteine) negli ultimi 30 giorni. Viene evidenziata la quantità di calorie consigliata giornalmente.</ng-template>

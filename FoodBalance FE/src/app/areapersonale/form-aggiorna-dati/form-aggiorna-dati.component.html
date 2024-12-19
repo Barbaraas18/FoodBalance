@@ -1,0 +1,36 @@
+<mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>Modifica i tuoi dati personali</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="formDati">
+            <div class="secondaSezione"><mat-form-field appearance="outline" class="eta">
+                <mat-label>Età</mat-label>
+                <input matInput type="number" formControlName="eta">
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="sesso">
+                <mat-label>Sesso</mat-label>
+                <input matInput type="text" formControlName="sesso" readonly>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="altezza">
+                <mat-label>Altezza</mat-label>
+                <input matInput type="number" formControlName="altezza">
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="peso">
+                <mat-label>Peso</mat-label>
+                <input matInput type="number" formControlName="peso">
+            </mat-form-field></div><div class="terzaSezione">
+            <mat-form-field appearance="outline" class="attivita">
+                <mat-label>Livello di attività</mat-label>
+                <mat-select formControlName="attivita">
+                  <mat-option value="SEDENTARIO">Sedentario</mat-option>
+                  <mat-option value="LEGGERMENTE_ATTIVO">Leggermente Attivo</mat-option>
+                  <mat-option value="MODERATAMENTE_ATTIVO">Moderatamente Attivo</mat-option>
+                  <mat-option value="MOLTO_ATTIVO">Molto Attivo</mat-option>
+                  <mat-option value="ESTREMAMENTE_ATTIVO">Estremamente Attivo</mat-option>
+                </mat-select>
+            </mat-form-field> <button [disabled]="formDati.pristine||!formDati.valid" class="tasto" mat-raised-button (click)="Onclick()">Aggiorna</button></div>
+            <div class="warning">{{warning}}</div>
+          </form>
+    </mat-card-content>
+  </mat-card>

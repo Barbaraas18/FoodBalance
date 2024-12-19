@@ -1,0 +1,4 @@
+
+<div class="flex"><app-sommario-profilo [utente]="utente"></app-sommario-profilo>
+    <app-form-aggiorna-dati-account [utente]="utente" (inviaUtenteAggiornato)="onUtenteAggiornato($event)"></app-form-aggiorna-dati-account><app-form-aggiorna-dati [utente]="utente" (inviaUtenteAggiornato)="onUtenteAggiornato($event)"></app-form-aggiorna-dati></div><div class="warning">{{warning}}</div>
+    

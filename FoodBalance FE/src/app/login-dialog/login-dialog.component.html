@@ -1,0 +1,104 @@
+<h1 mat-dialog-title>
+  <mat-button-toggle-group class="toggle" [hideSingleSelectionIndicator]="true">
+    <mat-button-toggle class="login_registrazione" [checked]="data.login" (click)="Login()">Login</mat-button-toggle>
+    <mat-button-toggle class="login_registrazione" [checked]="!data.login" (click)="Registrati()">Registrati</mat-button-toggle>
+  </mat-button-toggle-group>
+</h1>
+<div class="contenuto" mat-dialog-content>
+  <mat-icon>account_circle</mat-icon>
+  <ng-template *ngIf="data.login; then loginBody else registrazioneBody"></ng-template>
+
+</div>
+<div class="pulsanti" mat-dialog-actions>
+  <button mat-button class="verde" (click)="annulla()">Annulla</button>
+  <ng-template *ngIf="data.login; then loginTasto else RegistrazioneTasto"></ng-template>
+</div>
+
+
+<!--tasti-->
+<ng-template #loginTasto><button mat-button class="verde" (click)="accedi()">Login</button></ng-template>
+<ng-template #RegistrazioneTasto><button mat-button class="verde" (click)="registrati()">Registrati</button></ng-template>
+
+
+
+<!--modulo login-->
+<ng-template #loginBody><form [formGroup]="formLogin"><div class="moduloLogin"><div><mat-form-field appearance="outline">
+  <mat-label>Email</mat-label>
+  <input matInput type="text" formControlName="email">
+  </mat-form-field>
+</div>
+<div><mat-form-field appearance="outline">
+  <mat-label>Password</mat-label>
+  <input matInput [type]="hide ? 'password' : 'text'" formControlName="password_utente">
+  <button class="password_button" matSuffix mat-icon-button (click)="hide = !hide">
+    <mat-icon class="password_icon">{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+  </button>
+</mat-form-field></div>
+  <div>{{warning}}</div></div>
+</form></ng-template>
+
+
+<!--modulo registrazione-->
+<ng-template #registrazioneBody><form [formGroup]="formRegistrazione">
+  <mat-stepper orientation="vertical" [linear]="false" #stepper>
+    <mat-step>
+        <ng-template matStepLabel class="sezione">Inserisci Email e Password</ng-template>
+        <mat-form-field appearance="outline" class="email">
+          <mat-label >Email</mat-label>
+          <input matInput type="text" formControlName="email">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="username">
+          <mat-label >Nome Utente</mat-label>
+          <input matInput type="text" formControlName="username" >
+        </mat-form-field>
+        <mat-form-field class="password" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password_utente">
+          <button class="password_button" matSuffix mat-icon-button (click)="hide = !hide">
+            <mat-icon class="password_icon"> {{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext class="verde">Avanti</button>
+        </div>
+    </mat-step>
+    <mat-step>
+        <ng-template  matStepLabel  class="sezione" >Inserisci i tuoi dati personali</ng-template>
+        <div class="secondoGruppo">
+        <mat-form-field appearance="outline" class="eta">
+          <mat-label>Età</mat-label>
+          <input type="number" min="0" matInput formControlName="eta">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="sesso">
+          <mat-label>Sesso</mat-label>
+          <mat-select formControlName="sesso">
+            <mat-option value="M">Uomo</mat-option>
+            <mat-option value="F">Donna</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="secondoGruppo">
+        <mat-form-field appearance="outline" class="altezza">
+          <mat-label>Altezza(cm)</mat-label>
+          <input matInput type="number" min="0" formControlName="altezza">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="peso">
+          <mat-label>Peso(kg)</mat-label>
+          <input matInput type="number" min="0" formControlName="peso">
+        </mat-form-field>
+      </div>
+        <mat-form-field appearance="outline" class="attivita">
+          <mat-label>Livello di attività</mat-label>
+          <mat-select formControlName="attivita">
+            <mat-option value="SEDENTARIO">Sedentario</mat-option>
+            <mat-option value="LEGGERMENTE_ATTIVO">Leggermente Attivo</mat-option>
+            <mat-option value="MODERATAMENTE_ATTIVO">Moderatamente Attivo</mat-option>
+            <mat-option value="MOLTO_ATTIVO">Molto Attivo</mat-option>
+            <mat-option value="ESTREMAMENTE_ATTIVO">Estremamente Attivo</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>{{warning}}</div>
+    </mat-step>
+  </mat-stepper>
+</form>
+</ng-template>

@@ -1,0 +1,68 @@
+mat-card{
+    width:650px;
+    border:inset;
+    border-color: #168801f5;
+    border-width: 2px;
+    background-color: rgba(255, 255, 255, 0.821);
+}
+
+mat-card-header{
+    font-size: 30px;
+}
+mat-form-field{
+    margin-right:5px;
+}
+.primaSezione{
+    display:flex;
+    margin-top:20px;
+}
+.email, .username{
+    width:50%;
+}
+
+.secondaSezione{
+    display:flex;
+}
+.old_password_utente, .password_utente{
+    width: 38%;
+}
+.password_icon{
+    transform: scale(1.1);
+    width: 100px;
+}
+
+.password_button{
+    display: flex;
+    align-items:center;
+    padding: 0px;
+    height: 55px;
+    width: 55px;
+
+}
+
+button.tasto{
+    margin-top:5px;
+    margin-left: auto;
+    margin-right: 5px;
+}
+
+.tasto:not(:disabled) {
+    background-color: #168801f5;
+    color: #fff;
+
+}
+button.tasto:hover{
+    background-color: #127102f5;
+}
+
+ mat-form-field input[readonly] {
+    color: #616d70;     
+    cursor: not-allowed; 
+  }
+
+  .warning{
+    display: flex;
+    font-size: small;
+    color: #444c4e;
+    justify-content: center;
+  }

@@ -1,0 +1,66 @@
+header {
+  
+    display: flex;
+    align-items: center;
+    background:  #158801  ;   
+    justify-content: space-between; 
+    padding: 10px 20px;  
+}
+
+
+.background{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/sfondo.jpeg"); /* Sostituisci con il percorso della tua immagine */
+  background-size: cover; /* Adatta l'immagine allo schermo */
+  background-position: center; /* Centra l'immagine */
+  background-repeat: no-repeat; /* Evita la ripetizione */
+  opacity: 0.08; /* Imposta l'opacità dello sfondo */
+  z-index: -1; /* Posiziona lo sfondo dietro il contenuto */
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+  }
+  
+img{
+    height: 150px;       
+    width: 150px;               
+    margin-right: 15px;              
+}
+
+.logo {
+    width: 70px;  
+    height: auto;   
+  }
+  
+  
+  .scritta {
+    width: 310px;   /* Imposta una larghezza diversa per il nome del sito */
+    height: auto;   /* Mantieni il rapporto di aspetto per il nome del sito */
+  }
+
+.icon_botton{
+    height: 50px;
+    width: 50px;
+    display:flex;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: black;
+
+}
+.mat-icon{ 
+    transform: scale(2.1);
+    margin:auto;
+}
+
+.menu_scelta{
+  transform: scale(1.1);
+    height: 50px;
+    width: 700px;
+    margin:auto;
+}
