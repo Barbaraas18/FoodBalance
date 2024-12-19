@@ -4,4 +4,4 @@ Gli utenti possono registrare le fonti di cibo consumate e comporre i propri pas
 
 Nella cartella FoodBalance FE si trova tutto il codice inerente al front-end
 Nella cartella FoodBalance BE si trova tutto il codice inerente al back-end
-Il file FoodBalancedb è il codice sql per generare le tabelle su cui si basa tutto l'applicativo
+Il file FoodBalanceDB è il codice sql per generare le tabelle su cui si basa tutto l'applicativo
