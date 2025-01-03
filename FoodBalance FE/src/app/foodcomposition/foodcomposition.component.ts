@@ -7,7 +7,7 @@ import { CiboService } from '../servizi/cibo.service';
 import { UtenteInterface as Utente } from '../Interfacce/utente.interface' 
 import { servicePasto } from '../servizi/servicePasto';
 import { CIBOEXTENDED } from '../Interfacce/CIBOEXTENDED';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
+
 @Component({
   selector: 'app-foodcomposition',
   templateUrl: './foodcomposition.component.html',
@@ -27,46 +27,69 @@ export class FoodcompositionComponent /* implements AfterViewInit */{
     const day = (d || new Date()).getDate() ; 
     const month = (d || new Date()).getMonth() ; 
     const year = (d || new Date()).getFullYear() ;  
-
-    //console.log(d)
+   
     
-    //console.log(month <= Number(this.prova.getMonth()) && year <= Number(this.prova.getFullYear()))
-      if (month <= Number(this.DataCalendario.getMonth()) && year <= Number(this.DataCalendario.getFullYear()) ){
+      console.log()
 
-        if (month == this.DataCalendario.getMonth()){
-          return day <= Number(this.DataCalendario.getDate()) ; 
-        }else{
+    
+      if(year <= Number(this.DataCalendario.getFullYear()) ){
+
+        if(year < Number(this.DataCalendario.getFullYear()) ){
           return true 
+        }else{
+          // anno uguale 
+          //console.log(month +"<="+this.DataCalendario.getMonth())
+          if (month <= Number(this.DataCalendario.getMonth())) {
+            if (month < Number(this.DataCalendario.getMonth())) {
+              return true ; 
+            }else{
+              //mese uguale 
+
+              if(day <= Number(this.DataCalendario.getDate())){ return true }
+              else { return false }
+
+
+
+
+
+
+            }
+
+
+
+
+
+          }else{return false } ; 
+
+
+
+
+
         }
 
-      } else{
+
+
+
+      }else{
         return false ; 
       }
+
+
+
+
+
+
+
+
+
+
+
       
   };
   
-  prendiMese(){
-    if (typeof(Number(this.DataCalendario.getMonth)) == "number") {
-      
-      if(Number(this.DataCalendario.getMonth) < 10){
-        
-
-        return ("0"+this.DataCalendario.getMonth()+1).toString() ;  
-
-      }else{
-        return (this.DataCalendario.getMonth()+1).toString() ; 
-      }
-
-    }else{
-      alert('si è verificato un problema inaspettato')  ; 
-      return "0"   ; 
-    }
-    
-
-
-  }
   
-  maxDate = this.prendiMese()+"/"+this.DataCalendario.getDate()+"/"+this.DataCalendario.getFullYear() ; 
+ 
+  maxDate = (this.DataCalendario.getMonth()+1)+"/"+this.DataCalendario.getDate()+"/"+this.DataCalendario.getFullYear() ; 
 
   
   
@@ -104,13 +127,11 @@ export class FoodcompositionComponent /* implements AfterViewInit */{
 
     
 
-    //la data entra come formato yyyy/mm/day
-    // data scelt :: 2024-12-1 fixed 
+    
     
     
     const limiteMassimo = this.conversioneDataCalendario(this.maxDate)
      
-    
     
     if(this.verificaValiditaDataInput(dataScelta)){
 
@@ -165,22 +186,17 @@ export class FoodcompositionComponent /* implements AfterViewInit */{
   }
 
   condizioneVerificaCalendario(dataScelta : string , dataLimite : string ) : boolean{
-     
-    var data = [dataScelta , dataLimite] ; 
-
-    if(data.sort()[0] == dataScelta){
-      return true 
-    }else{
-      return false
-    } 
-
-
-
-
-
-    
     
   
+    var data = [dataScelta , dataLimite] ; 
+    
+    if(data.sort()[0] == dataScelta){
+      
+      return true  ; 
+    }else{
+      return false ; 
+    } 
+
 
 
 }
@@ -404,7 +420,7 @@ verificaValiditaDataInput(array1 : string) : boolean {
         }  
     
         if(Number(mese) < 10 ){
-          mese = "0" + ((mese).toString) ; 
+          mese = "0" + ((mese).toString()) ; 
 
         }
     
@@ -453,47 +469,8 @@ verificaValiditaDataInput(array1 : string) : boolean {
 
 
 
-
-
-
-
-
   }
     
-
-
- 
-
-
- 
-
-
-
-
-
-
-
-  
-
-
-    
-
-
- 
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
 
 
 
